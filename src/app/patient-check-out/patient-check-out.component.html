@@ -1,0 +1,166 @@
+<div class="container">
+  <h1 class="well">Patient Checkout</h1>
+  <div class="col-lg-12 well">
+    <div class="row" *ngIf="patient">
+      <form name="form" (ngSubmit)="f.form.valid && patientChkt()" #f="ngForm" novalidate>
+        <div class="col-sm-12">
+
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>First Name</label><br>
+              <md-input-container class="example-full-width">
+                <input type="text" mdInput #firstName=ngModel [ngModelOptions]="{standalone: true}" name="firstName"  required minlength="3" maxlength="10"  [(ngModel)]="patient.firstName"
+                  style="color:#2F4F4F" disabled>
+              </md-input-container>
+             <div *ngIf="f.submitted && !firstName.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Last Name</label>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="patient.lastName" [ngModelOptions]="{standalone: true}" name="lastName" #lastname=ngModel style="color:#2F4F4F"
+                  disabled>
+              </md-input-container>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-4 form-group">
+              <label>Phone</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>+92 &nbsp;</span>
+                <input type="tel" mdInput [(ngModel)]="patient.contact" [ngModelOptions]="{standalone: true}" name="contact" #contact=ngModel
+                  style="color:#2F4F4F" disabled>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Age</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="age" #age=ngModel [ngModelOptions]="{standalone: true}" [(ngModel)]="patient.age" style="color:#2F4F4F"
+                  disabled>
+              </md-input-container>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Disease</label>
+              <md-input-container class="example-full-width">
+                <input type="tel" mdInput name="disease" [(ngModel)]="patient.disease" [ngModelOptions]="{standalone: true}" #disease=ngModel
+                  style="color:#2F4F4F" disabled>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-plane"></span></md-icon>
+              </md-input-container>
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-sm-4 form-group">
+              <label>DateIn</label>
+              <md-input-container class="example-full-width">
+                <input type="tel" mdInput name="dateIn" [(ngModel)]="patientMore.createdAt" [ngModelOptions]="{standalone: true}" #dateIn=ngModel
+                  style="color:#2F4F4F" disabled>
+              </md-input-container>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>DateOut</label>
+              <md-input-container class="example-full-width">
+                <input type="date" mdInput name="dateOut" required [(ngModel)]="patientMore.dateOut" [ngModelOptions]="{standalone: true}" #dateOut=ngModel
+                  style="color:#2F4F4F">
+              </md-input-container>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Status</label>
+              <md-input-container class="example-full-width">
+                <input type="tel" mdInput placeholder="status" required [(ngModel)]="patientMore.status" maxlength="3" maxlength="10" pattern="[A-Za-z]*" [ngModelOptions]="{standalone: true}"
+                  style="color:#2F4F4F" #status=ngModel>
+              </md-input-container>
+             <div *ngIf="f.submitted && !status.valid" class="help-block"></div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Gender</label><br><br>
+              <md-radio-group [(ngModel)]="patient.gender" [ngModelOptions]="{standalone: true}" disabled>
+                <md-radio-button value="Male" style="color:#2F4F4F">Male</md-radio-button>
+                <md-radio-button value="Female" style="color:#2F4F4F">Female </md-radio-button>
+              </md-radio-group>
+            </div>
+
+            <div class="col-sm-8 form-group">
+              <label>Address</label>
+              <md-input-container class="example-full-width">
+                <input mdInput #message maxlength="256" [(ngModel)]="patient.address" [ngModelOptions]="{standalone: true}" style="color:#2F4F4F"
+                  disabled>
+                <md-hint align="end">{{message.value.length}} / 100</md-hint>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-home"></span></md-icon>
+              </md-input-container>
+            </div>
+
+          </div>
+          <h3>Room Information</h3><br><br>
+          <div class="row">
+            <div class="col-sm-3 form-group">
+              <label>Floor</label>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="patientMore.floor" [ngModelOptions]="{standalone: true}" style="color:#2F4F4F" disabled>
+              </md-input-container>
+            </div>
+            <div class="col-sm-3 form-group">
+              <label>Room No</label>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="patientMore.roomNo" [ngModelOptions]="{standalone: true}" style="color:#2F4F4F" disabled>
+              </md-input-container>
+            </div>
+             <div class="col-sm-3 form-group">
+              <label>Doctor</label>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="patientMore.doctor" [ngModelOptions]="{standalone: true}" style="color:#2F4F4F" disabled>
+              </md-input-container>
+            </div>
+
+            <div class="col-sm-3 form-group">
+              <label>Doctor Fee</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>Rs. &nbsp;</span>
+                <input mdInput [(ngModel)]="patientMore.price" [ngModelOptions]="{standalone: true}" style="color:#2F4F4F" disabled>
+              </md-input-container>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-sm-4 form-group">
+              <label>Medicine and Service charges</label>
+              <md-input-container class="example-full-width">
+                <input type="tel" mdInput [(ngModel)]="patientMore.MdcnAndSrvChrg" required minlength="2" maxlength="5" pattern="[0-9]*"  #MdcnAndSrvChrg="ngModel" [ngModelOptions]="{standalone: true}" (focusout)="onChange()"
+                  style="color:#2F4F4F" placeholder="Enter Medicine and Service charges Here..">
+              </md-input-container>
+              <div *ngIf="f.submitted && !MdcnAndSrvChrg.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Total Price</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>Rs. &nbsp;</span>
+                <input type="text" mdInput [(ngModel)]="patientMore.totalPrice" [ngModelOptions]="{standalone: true}" style="color:#2F4F4F" disabled>
+              </md-input-container>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-sm-2">
+              <button md-fab routerLink="/admin/patient-visits">Back</button>
+              <button type="submit" ng-model="patientChkt()"  md-fab >Save</button>
+            </div>
+            <div class="col-sm-10">
+              <h2 style="color:green" *ngIf="messages.msg">{{messages.msg}}</h2>
+              <h2 *ngIf="messages.err" style="color:red">{{messages.err}}</h2>
+            </div>
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row" *ngIf="patient">
+    <h1>Patient Information</h1>
+    <div class="row" >
+      <div class="col-sm-4 form-group">
+        <label>First Name</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.firstName}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label>Last Name</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.lastName}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+       <div class="col-sm-4 form-group">
+        <label>Faher's Name</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.fatherName}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      
+     
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <label>Gender</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.gender}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label>Contact</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+         <input type="tel" mdInput value=0{{patient.contact}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+       <div class="col-sm-4 form-group">
+        <label>DateIn</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.createdAt}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>    
+    
+    </div>
+   
+     <div class="row">
+       <div class="col-sm-4 form-group">
+        <label>Age</label> &nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.age}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+        <div class="col-sm-4 form-group">
+        <label>Disease</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.disease}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+       <div class="col-sm-4 form-group">   
+        <label>Address</label> &nbsp;&nbsp;&nbsp;
+
+        <md-input-container>
+          <input type="tel" mdInput value={{patient.address}} disabled style="color:#2F4F4F; width:250px">
+        </md-input-container>
+    </div>
+     </div>
+  </div>
+</div>
+
+    <button md-mini-fab (click)="close()">close</button>

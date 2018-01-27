@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row" *ngIf="staff">
+    <h1>Staff Information</h1>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <label>First Name</label> &nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.firstName}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label>Last Name</label> &nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.lastName}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label>Gender</label> &nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.gender}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <label>Contact</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value=0{{staff.contact}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label>Age</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.age}} disabled style="color:#2F4F4F">
+        </md-input-container>
+      </div>
+      <div class="col-sm-4 form-group">
+        <label>Position</label> &nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.position}} disabled style="color:#2F4F4F; width:220px   ">
+        </md-input-container>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <label>Salary</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.salary}} disabled style="color:#2F4F4F; width:150px">
+        </md-input-container>
+      </div>
+      <div class="col-sm-8 form-group">
+        <label>address</label> &nbsp;&nbsp;&nbsp;
+        <md-input-container>
+          <input type="tel" mdInput value={{staff.address}} disabled style="color:#2F4F4F; width:630px">
+        </md-input-container>
+      </div>
+    </div>
+  </div>
+
+  <button md-fab (click)="close()">close</button>

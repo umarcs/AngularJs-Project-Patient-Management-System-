@@ -1,0 +1,130 @@
+<div class="container">
+  <h1 class="well">Edit Patient Information</h1>
+  <div class="col-lg-12 well">
+    <div class="row">
+      <form name="form" (ngSubmit)="f.form.valid && editInfo()" #f="ngForm" novalidate>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>First Name</label><br>
+              <md-input-container class="example-full-width">
+                <input mdInput name="firstName" [(ngModel)]="patient.firstName" #firstName="ngModel" required minlength="3" maxlength="10"
+                  pattern="[A-Za-z]*" mdInput >
+              </md-input-container>
+              <div *ngIf="f.submitted && !firstName.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Last Name</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="lastName" [(ngModel)]="patient.lastName" #lastName="ngModel"  maxlength="10" pattern="[A-Za-z]*"
+                  mdInput>
+              </md-input-container>
+              <div *ngIf="f.submitted && !lastName.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Father's Name</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="fatherName" required [(ngModel)]="patient.fatherName" #fatherName="ngModel"  maxlength="15" pattern="[A-Za-z ]*"
+                  mdInput>
+              </md-input-container>
+              <div *ngIf="f.submitted && !fatherName.valid" class="help-block"></div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-4 form-group">
+              <label>Phone</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>+92 &nbsp;</span>
+                <input mdInput name="contact" [(ngModel)]="patient.contact" #contact="ngModel" required minlength="10" maxlength="10" pattern="[0-9]{10}"
+                  mdInput >
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !contact.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Age</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="age" [(ngModel)]="patient.age" #age="ngModel" required minlength="2" maxlength="9" pattern="[A-Za-z0-9 ]*"
+                  mdInput>
+              </md-input-container>
+              <div *ngIf="f.submitted && !age.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Disease</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="disease" [(ngModel)]="patient.disease" #disease="ngModel" required minlength="3" maxlength="15" pattern="[A-Za-z ]*"
+                  mdInput>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-plane"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !disease.valid" class="help-block"></div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Gender</label><br><br>
+              <md-radio-group [(ngModel)]="patient.gender" [ngModelOptions]="{standalone: true}">
+                <md-radio-button value="Male">Male</md-radio-button>
+                <md-radio-button value="Female">Female </md-radio-button>
+              </md-radio-group>
+            </div>
+
+            <div class="col-sm-8 form-group">
+              <label>Address</label>
+              <md-input-container class="example-full-width">
+                <input mdInput #message maxlength="256" name="address" [(ngModel)]="patient.address" #address="ngModel" required minlength="4"
+                  maxlength="100" pattern="[A-Za-z0-9 #/]*" mdInput >
+                <md-hint align="end">{{message.value.length}} / 100</md-hint>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-home"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !address.valid" class="help-block"></div>
+            </div>
+
+          </div>
+          <!-- <h3>Room Information</h3><br><br>
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Floor</label><br><br>
+              <md-select placeholder="Select Floor" [(ngModel)]="patient.floor" name="floor" required (change)="changeFloor($event)">
+                <md-option *ngFor="let f of floorAndRooms" [value]="f.title">
+                  {{f.title}}
+                </md-option>
+              </md-select>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Room No</label><br><br>
+              <md-select placeholder="Select Room" [(ngModel)]="patient.roomNo" name="room" required>
+                <md-option *ngFor="let r of floorRooms" [value]="r.roomNo">
+                  {{r.roomNo}}
+                </md-option>
+              </md-select>
+            </div>
+
+            <div class="col-sm-4 form-group">
+              <label>Price</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>Rs. &nbsp;</span>
+                <input mdInput [(ngModel)]="patient.price" #price=ngModel [ngModelOptions]="{standalone: true}">
+              </md-input-container>
+            </div>
+          </div> -->
+          <div class="row">
+            <div class="col-sm-2">
+              <button md-fab routerLink="/admin/patient-info">Back</button>
+              <button type="submit" ng-model="editInfo()"  md-fab>Submit</button>
+            </div>
+            <div class="col-sm-10">
+              <h2 style="color:green" *ngIf="messages.msg">{{messages.msg}}</h2>
+              <h2 *ngIf="messages.err" style="color:red">{{messages.err}}</h2>
+            </div>
+          </div>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Patient Management System</title>
+
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+
+
+  <!-- Bootstrap core CSS     -->
+
+  <!-- Animation library for notifications   -->
+  <link href="../assets/css/animate.min.css" rel="stylesheet" />
+
+  <!--  Light Bootstrap Table core CSS    -->
+  <link href="../assets/css/light-bootstrap-dashboard.css" rel="stylesheet" />
+
+
+  <!--  CSS for Demo Purpose, don't include it in your project     -->
+  <link href="../assets/css/demo.css" rel="stylesheet" />
+
+
+  <!--     Fonts and icons     -->
+  <style>
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar" data-color="grey" data-image="assets/img/sidebar-5.jpg">
+
+      <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a routerLink="/admin" class="simple-text">
+                    Q-M-C
+                </a>
+        </div>
+
+        <ul class="nav">
+          <li class="active">
+            <a routerLink="/admin/patient-reg">
+                        <i class="pe-7s-graph"></i>
+                        <p>Patient Registration</p>
+                    </a>
+          </li>
+
+          <li>
+            <a routerLink="/admin/patient-info">
+                        <i class="pe-7s-user"></i>
+                        <p>Patient Information</p>
+                    </a>
+          </li>
+          <li>
+            <a routerLink="/admin/patient-visits">
+                        <i class="pe-7s-user"></i>
+                        <p>Patient Visits</p>
+                    </a>
+          </li>
+
+          <li>
+            <a routerLink="/admin/room-info">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>Room information</p>
+                    </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-rooms">
+                        <i class="pe-7s-science"></i>
+                        <p>Add New Room</p>
+                    </a>
+          </li>
+          <li>
+            <a routerLink="/admin/staff-info">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Staff Information</p>
+                    </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-staff">
+                        <i class="pe-7s-map-marker"></i>
+                        <p>Add Staff</p>
+                    </a>
+          </li>
+
+          <li>
+            <a routerLink="/admin/doctors-info">
+                        <i class="pe-7s-bell"></i>
+                        <p>Doctors Information</p>
+                    </a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-doctors">
+                        <i class="pe-7s-bell"></i>
+                        <p>Add Doctors</p>
+                    </a>
+          </li>
+
+
+        </ul>
+
+      </div>
+    </div>
+
+    <!--       above    left  nav bar  -->
+
+    <div class="main-panel">
+      <nav class="navbar navbar-default navbar-fixed">
+        <div class="container-fluid">
+
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-left">
+              <h3 style="margin-top: 15px;margin-left:36px; color:#a7a098;"><b>Qaisrani Medical Centre</b></h3>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+
+
+              <div class="row">
+                <div class="col-md-12">
+                <div class="col-sm-5" style="margin-top: 15px">
+                  <li>
+                    <p>{{data}}</p>
+                  </li>
+                </div>
+                <div class="col-sm-2">
+                  <div class="dropdown">
+                    <span class="" id="menu1" data-toggle="dropdown" style="margin-top : 0px"><span class="glyphicon glyphicon-chevron-down"  style="margin-top : 17px"></span></span>
+                    <!-- <p><span class="glyphicon glyphicon-chevron-down"></span></p>     -->
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="/login">Logout</a></li>
+
+                    </ul>
+                  </div>
+                </div>
+                </div>
+              </div>
+
+
+
+              <li class="separator hidden-lg hidden-md"></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+
+  </div>
+
+
+
+</body>
+
+<!--   Core JS Files   -->
+
+<!--  Checkbox, Radio & Switch Plugins -->
+<script src="../assets/js/bootstrap-checkbox-radio-switch.js"></script>
+
+<!--  Charts Plugin -->
+<script src="../assets/js/chartist.min.js"></script>
+
+<!--  Notifications Plugin    -->
+<script src="../assets/js/bootstrap-notify.js"></script>
+
+<!--  Google Maps Plugin    -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+<script src="../assets/js/light-bootstrap-dashboard.js"></script>
+
+<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
+<script src="../assets/js/demo.js"></script>
+
+</html>

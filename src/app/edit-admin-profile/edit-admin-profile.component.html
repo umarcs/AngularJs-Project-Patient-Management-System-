@@ -1,0 +1,117 @@
+<div class="container">
+  <h1 class="well">Edit Doctor Information </h1>
+  <div class="col-lg-12 well">
+    <div class="row">
+      <form name="form" (ngSubmit)="f.form.valid && editInfo()" #f="ngForm" novalidate>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>First Name</label><br>
+              <md-input-container class="example-full-width">
+                <input type="text" mdInput #firstName=ngModel name="firstName" [(ngModel)]="doctor.firstName" required minlength="3" maxlength="10"
+                  pattern="[A-Za-z]*">
+              </md-input-container>
+              <div *ngIf="f.submitted && !firstName.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Last Name</label>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="doctor.lastName" name="lastName" #lastname=ngModel maxlength="10" pattern="[A-Za-z]*">
+              </md-input-container>
+              <!-- <div *ngIf="f.submitted && !lastName.valid" class="help-block"></div> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>Email</label><br>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="doctor.email" name="email" #email=ngModel required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              </md-input-container>
+              <div *ngIf="f.submitted && !email.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Specialization</label>
+              <md-input-container class="example-full-width">
+                <input mdInput [(ngModel)]="doctor.degree" name="degree" #degree=ngModel required minlength="3" maxlength="15" pattern="[A-Za-z ]*">
+              </md-input-container>
+              <div *ngIf="f.submitted && !degree.valid" class="help-block"></div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-4 form-group">
+              <label>Phone</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>+92 &nbsp;</span>
+                <input type="tel" mdInput [(ngModel)]="doctor.contact" name="contact" #contact=ngModel required minlength="10" maxlength="10"
+                  pattern="[0-9]{10}">
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !contact.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Age</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="age" #age=ngModel [(ngModel)]="doctor.age" required minlength="1" maxlength="2" pattern="[0-9]*">
+              </md-input-container>
+              <div *ngIf="f.submitted && !age.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Salary</label><br>
+              <md-input-container class="example-full-width">
+                <input mdInput [ngModelOptions]="{standalone: true}" [(ngModel)]="doctor.salary" required minlength="5" maxlength="7" pattern="[0-9]*"
+                  #salary=ngModel>
+              </md-input-container>
+              <div *ngIf="f.submitted && !salary.valid" class="help-block"></div>
+            </div>
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Gender</label><br><br>
+              <md-radio-group [(ngModel)]="doctor.gender" [ngModelOptions]="{standalone: true}">
+                <md-radio-button value="Male">Male</md-radio-button>
+                <md-radio-button value="Female">Female </md-radio-button>
+              </md-radio-group>
+
+            </div>
+
+            <!-- <div class="col-sm-4 form-group">
+              <label>position</label><br><br>
+              <md-select [(ngModel)]="doctor.position" [ngModelOptions]="{standalone: true}">
+                <md-option value="Assistence"> Assistence </md-option>
+                <md-option value="Head">Head </md-option>
+              </md-select>
+            </div> -->
+             <div class="col-sm-8 form-group">
+              <label>Address</label>
+              <md-input-container class="example-full-width">
+                <input mdInput #message maxlength="256" placeholder="Address" [(ngModel)]="doctor.address" name="address" #address="ngModel"
+                  required minlength="4" maxlength="100" pattern="[A-Za-z0-9]*">
+                <md-hint align="end">{{message.value.length}} / 100</md-hint>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-home"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !address.valid" class="help-block"></div>
+            </div>
+
+          </div>
+
+          
+          <div class="row">
+            <div class="col-sm-2">
+              <button routerLink="/admin/doctors-info" type="button" class="btn btn-lg btn-info">Back</button>
+              <button type="submit" ng-model="editInfo()" class="btn btn-lg btn-info">Edit</button> </div>
+
+            <div class="col-sm-10">
+              <h2 *ngIf="messages.msg" style="color:green">{{messages.msg}}</h2>
+              <h2 *ngIf="messages.err" style="color:red">{{messages.err}}</h2>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

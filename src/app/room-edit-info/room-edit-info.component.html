@@ -1,0 +1,81 @@
+<div class="container">
+  <h1 class="well">Edit Rooms Information</h1>
+  <div class="col-lg-12 well">
+    <div class="row" *ngIf="room">
+      <form name="form" (ngSubmit)="f.valid && editRoom()"  #f="ngForm" novalidate >
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Floor</label><br><br>
+              <md-input-container class="example-full-width">
+                <input type="test" mdInput [ngModelOptions]="{standalone: true}" [(ngModel)]="room.floor" disabled>
+              </md-input-container>
+            </div>
+            
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Room No</label>
+              <md-input-container class="example-full-width">
+                <input disabled mdInput name="roomNo" [(ngModel)]="room.roomNo" #roomNo="ngModel" required maxlength="3" minlength="3" pattern="[0-9]*" >
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !roomNo.valid" class="help-block"></div>           
+            </div>
+
+           <div class="col-sm-4 form-group">
+              <label>No of Beds</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="noOfBeds" [(ngModel)]="room.noOfBeds" #noOfBeds="ngModel" required minlength="1" maxlength="1" pattern="[1-9]*" >
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !noOfBeds.valid" class="help-block"></div>           
+            </div>
+            <!-- <div class="col-sm-4 form-group">
+              <label>Status</label><br><br>
+              <md-select  [ngModelOptions]="{standalone: true}"  [(ngModel)]="room.status">
+                <md-option value="free">Free</md-option>
+                <md-option value="busy">Busy </md-option>
+              </md-select>
+
+            </div> -->
+
+          </div>
+
+          <div class="row">
+
+
+            <!-- <div class="col-sm-4 form-group">
+              <label>Price</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>Rs. &nbsp;</span>
+                <input mdInput name="price" [(ngModel)]="room.price" #price="ngModel" required maxlength="4" pattern="[0-9]*" >
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+             <div *ngIf="f.submitted && !price.valid" class="help-block"></div>           
+            </div> -->
+          </div>
+
+          <div class="row">
+            <div class="col-sm-2">
+              <button md-fab routerLink="/admin/room-info">Back</button>
+              <button md-fab type="submit" ng-room="editRoom ()">Edit</button>
+            </div>
+            <div class="col-sm-10">
+              <h2 style="color:green" *ngIf="messages.msg">{{messages.msg}}</h2>
+              <h2 *ngIf="messages.err" style="color:red">{{messages.err}}</h2>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

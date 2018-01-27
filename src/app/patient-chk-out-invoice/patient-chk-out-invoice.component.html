@@ -1,0 +1,75 @@
+<div class="row" *ngIf="data">
+  <div class="col-sm-6" style="margin-left:320px">
+    <header class="clearfix">
+      <div id="logo">
+      </div>
+      <h1>QMC-Qaisrani Medical Centre</h1>
+      <!-- <div id="company" class="clearfix">
+        <div style="font-size:16px"><span>Token No</span><span> &nbsp;&nbsp;&nbsp;111</span></div>
+      </div> -->
+      <div id="company" class="clearfix">
+        <div>Qaisrani Medical Centre</div>
+        <div>Multan</div>
+        <div>MDA Chowk, Jail Road, Multan.</div>
+        <div>0336 8665812</div>
+        <div>qmc.multan@gmail.com</div>
+      </div>
+      <div id="project">
+        <div><span>Patient Nmae</span> {{data.patient.firstName +" "+ data.patient.lastName}}</div>
+        <div><span>Age</span> {{data.patient.age}}</div>
+        <div><span>Father's Name</span> {{data.patient.fatherName}}</div>
+        <div><span>Gender</span> {{data.patient.gender}}</div>
+        <div><span>Contact</span> {{data.patient.contact}}</div>
+        <div><span>DATE In</span> {{data.createdAt | date : "medium"}}</div>
+        <div><span>DATE Out</span> {{data.dateOut | date : "medium"}}</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="service">Room Info</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service">Disease</td>
+            <td class="desc">{{data.disease}}</td>
+
+          </tr>
+          <tr>
+            <td class="service">Floor</td>
+            <td class="desc">{{data.floor}}</td>
+
+          </tr>
+          <tr>
+            <td class="service">Room No</td>
+            <td class="desc">{{data.roomNo}}</td>
+
+          </tr>
+          <tr>
+            <td class="service">Doctor</td>
+            <td class="desc">Dr. {{data.doctor}}</td>
+
+          </tr>
+          
+           
+        </tbody>
+      </table>
+      <div style="float: right"><span><b>Madicine And Service Charges</b></span>  &nbsp;&nbsp;{{data.MdcnAndSrvChrg}}</div><br>
+      <div style="float: right"><span><b>Doctor Fee</b></span> &nbsp;&nbsp; {{data.price}}</div>
+      <hr style="height:5px">
+      <div style="float:right;"><span><b>Total Rupees</b></span> &nbsp;&nbsp;&nbsp;<span>{{data.totalPrice}}</span></div>
+
+    </main>
+
+  </div>
+</div>
+<div class="row">
+  <script>print.style.visibility = 'hidden';</script>
+  <div class="col-sm-2" style="margin-left:320px">
+    <button md-fab routerLink="/admin/patient-visits">Back</button>
+    <button md-fab type="button" (click)="print()">Print</button>
+  </div>
+</div>

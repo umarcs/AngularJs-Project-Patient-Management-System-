@@ -1,0 +1,72 @@
+<div class="container">
+  <h1 class="well">Add New Room</h1>
+  <div class="col-lg-12 well">
+    <div class="row">
+      <form name="form" (ngSubmit)="f.valid && addRoom()"  #f="ngForm" novalidate>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <label>Floor</label><br><br>
+              <md-select placeholder="Select Floor" [(ngModel)]="model.floor" name="floor" required>
+                <md-option *ngFor="let f of floor" [value]="f">
+                  {{f}}
+                </md-option>
+              </md-select>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Room No</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="roomNo" [(ngModel)]="model.roomNo" #roomNo="ngModel" required maxlength="3" minlength="3" pattern="[0-9]*" placeholder="Enter Room No Here..">
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !roomNo.valid" class="help-block"></div>           
+            </div>
+
+            <div class="col-sm-4 form-group">
+              <label>No of Beds</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="noOfBeds" [(ngModel)]="model.noOfBeds" #noOfBeds="ngModel" required minlength="1" maxlength="1" pattern="[1-9]*" placeholder="Enter No Of Beds Here..">
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !noOfBeds.valid" class="help-block"></div>           
+            </div>
+          </div>
+          <div class="row">
+
+            <!-- <div class="col-sm-4 form-group">
+              <label>Status</label><br><br>
+              <md-select placeholder="Status" [(ngModel)]="model.status" name="status" required>
+                <md-option *ngFor="let s of status" [value]="s">
+                  {{s}}
+                </md-option>
+              </md-select>
+
+            </div> -->
+            <!-- <div class="col-sm-4 form-group">
+              <label>Price</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>Rs. &nbsp;</span>
+                <input mdInput name="price" [(ngModel)]="model.price" #price="ngModel" required maxlength="4" pattern="[0-9]*" placeholder="Enter Price Here..">
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+             <div *ngIf="f.submitted && !price.valid" class="help-block"></div>           
+            </div> -->
+          </div>
+          <div class="row">
+            <div class="col-sm-1">
+              <button type="submit" ng-model="addRoom()" md-fab>Add</button>
+            </div>
+            <div class="col-sm-9">
+              <h2 *ngIf="message" style="color: green">{{message}}</h2>
+              <h2 *ngIf="error" style="color: red">{{error}}</h2>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

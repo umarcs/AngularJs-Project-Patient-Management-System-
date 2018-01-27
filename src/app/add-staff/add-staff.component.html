@@ -1,0 +1,117 @@
+<div class="container">
+  <h1 class="well">Add New Staff </h1>
+  <div class="col-lg-12 well">
+    <div class="row">
+      <form name="form" (ngSubmit)="f.form.valid && addStaff()" #f="ngForm" novalidate>
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6 form-group">
+              <label>First Name</label><br>
+              <md-input-container class="example-full-width">
+                <input mdInput name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required minlength="3" maxlength="10"
+                  pattern="[A-Za-z]*" placeholder="Enter first Name Here..">
+              </md-input-container>
+              <div *ngIf="f.submitted && !firstName.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Last Name</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel"  maxlength="10" pattern="[A-Za-z]*"
+                  placeholder="Enter last Name Here..">
+              </md-input-container>
+              <div *ngIf="f.submitted && !lastName.valid" class="help-block"></div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-6 form-group {{contactClass}}">
+              <label>Phone</label>
+              <md-input-container class="example-full-width">
+                <span mdPrefix>+92 &nbsp;</span>
+                <input
+                  mdInput
+                  name="contact"
+                  [(ngModel)]="model.contact"
+                  #contact="ngModel"
+                  required
+                  (keyup)= checkPattern($event.target.value)
+                  (change)= checkPattern($event.target.value) 
+                  minlength="10"
+                  maxlength="10"
+                  placeholder="phone"
+                >
+                <md-icon mdSuffix><span class="glyphicon glyphicon-pencil"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !contact.valid" class="help-block"></div>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label>Age</label>
+              <md-input-container class="example-full-width">
+                <input mdInput name="age" [(ngModel)]="model.age" #age="ngModel" required minlength="2" maxlength="2" pattern="[0-9]*" placeholder="Enter age Here..">
+              </md-input-container>
+              <div *ngIf="f.submitted && !age.valid" class="help-block"></div>
+            </div>
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4 form-group">
+              <label>Gender</label><br><br>
+              <md-radio-group [ngModelOptions]="{standalone: true}" [(ngModel)]="model.gender">
+                <md-radio-button *ngFor="let g of gender" [value]="g">
+                  {{g}} &nbsp;&nbsp;
+
+                </md-radio-button>
+              </md-radio-group>
+
+            </div>
+
+            <div class="col-sm-4 form-group">
+              <label>position</label><br><br>
+              <md-select placeholder="Select Position" [(ngModel)]="model.position" name="position" required>
+                <md-option *ngFor="let p of position" [value]="p">
+                  {{p}}
+                </md-option>
+              </md-select>
+
+            </div>
+            <div class="col-sm-4 form-group">
+              <label>Salary</label><br>
+              <md-input-container class="example-full-width">
+                <input mdInput name="salary" [(ngModel)]="model.salary" required minlength="5" maxlength="7" pattern="[0-9]*" #salary=ngModel  placeholder="Enter Salary Here..">
+              </md-input-container>
+              <div *ngIf="f.submitted && !salary.valid" class="help-block"></div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <label>Address</label>
+              <md-input-container class="example-full-width">
+                <input mdInput #message maxlength="256" placeholder="Address" [(ngModel)]="model.address" name="address" #address="ngModel"
+                  required minlength="4" maxlength="100" pattern="[A-Za-z0-9 ]*">
+                <md-hint align="end">{{message.value.length}} / 100</md-hint>
+                <md-icon mdSuffix><span class="glyphicon glyphicon-home"></span></md-icon>
+              </md-input-container>
+              <div *ngIf="f.submitted && !address.valid" class="help-block"></div>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="col-sm-1">
+              <button type="submit" ng-model="addStaff()" class="btn btn-lg btn-info">Add</button>
+            </div>
+            <div class="col-sm-9">
+              <h2 *ngIf="infoMessage" style="color: green">{{infoMessage}}</h2>
+              <h2 *ngIf="error" style="color: red">{{error}}</h2>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

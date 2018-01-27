@@ -1,0 +1,72 @@
+<div class="row" *ngIf="data" style="margin-left:15px; margin-right:0px">
+  <div class="col-sm-6">
+    <header class="clearfix">
+      <div id="logo">
+      </div>
+      <h1>QMC-Qaisrani Medical Centre</h1>
+      <!-- <div>
+        <div style="font-size:20px; margin-left:267px"><span>Token No</span><span> &nbsp;&nbsp;&nbsp;{{data.tokenNumber}}</span></div>
+      </div> -->
+      <hr>
+      <div id="company" class="clearfix">
+        <div>Qaisrani Medical Centre</div>
+        <div>Multan</div>
+        <div>MDA Chowk, Jail Road, Multan.</div>
+        <div>0336 8665812</div>
+        <div>qmc.multan@gmail.com</div>
+      </div>
+      <div id="project">
+        <div><span>Patient Nmae</span> {{data.patient.firstName +" "+ data.patient.lastName}}</div>
+        <div><span>Father's Name</span> {{data.patient.fatherName}}</div>
+        <div><span>Gender</span> {{data.patient.gender}}</div>
+        <div><span>Contact</span> 0{{data.patient.contact}}</div>
+        <div><span>DATE</span> {{data.createdAt | date : "medium"}}</div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="service">Room Info</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service">Disease</td>
+            <td class="desc">{{data.disease}}</td>
+
+          </tr>
+          <tr>
+            <td class="service">Floor</td>
+            <td class="desc">{{data.floor}}</td>
+
+          </tr>
+          <tr>
+            <td class="service">Room No</td>
+            <td class="desc">{{data.roomNo}}</td>
+
+          </tr>
+          <tr>
+            <td class="service">Doctor</td>
+            <td class="desc">Dr. {{data.doctor}}</td>
+
+          </tr>
+
+        </tbody>
+      </table>
+      <hr style="height:5px">
+      <div style="float:right; margin-right: 21px;"><span>Doctor Fee</span> &nbsp;&nbsp;&nbsp;<span>{{data.price}}</span></div>
+
+    </main>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6" style="margin-left:512px">
+   
+    <button md-fab routerLink="/admin/patient-reg">Back</button>
+    <button md-fab type="button" (click)="print()">Print</button>
+  </div>
+</div>

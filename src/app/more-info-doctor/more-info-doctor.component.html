@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row" *ngIf="doctor">
+      <h1>Doctor Information</h1>
+      <div class="row" >
+        <div class="col-sm-4 form-group">
+          <label>First Name</label> &nbsp;&nbsp;&nbsp;
+  
+          <md-input-container>
+            <input type="tel" mdInput value={{doctor.firstName}} disabled style="color:#2F4F4F">
+          </md-input-container>
+        </div>
+        <div class="col-sm-4 form-group">
+          <label>Last Name</label> &nbsp;&nbsp;&nbsp;
+  
+          <md-input-container>
+            <input type="tel" mdInput value={{doctor.lastName}} disabled style="color:#2F4F4F">
+          </md-input-container>
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>Gender</label> &nbsp;&nbsp;&nbsp;
+    
+            <md-input-container>
+              <input type="tel" mdInput value={{doctor.gender}} disabled style="color:#2F4F4F">
+            </md-input-container>
+          </div>
+      </div>
+      <div class="row">
+       
+        <div class="col-sm-4 form-group">
+          <label>Contact</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+          <md-input-container>
+           <input type="tel" mdInput value=0{{doctor.contact}} disabled style="color:#2F4F4F">
+          </md-input-container>
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>Age</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <md-input-container>
+              <input type="tel" mdInput value={{doctor.age}} disabled style="color:#2F4F4F">
+            </md-input-container>
+          </div>
+          <div class="col-sm-4 form-group">
+              <label>Email</label> &nbsp;&nbsp;&nbsp;
+              <md-input-container>
+                <input type="tel" mdInput value={{doctor.email}} disabled style="color:#2F4F4F; width:220px   ">
+              </md-input-container>
+            </div>
+        
+      
+      </div>
+     
+       <div class="row">
+         
+          <div class="col-sm-4 form-group">
+          <label>Specialization</label> &nbsp;&nbsp;&nbsp;
+  
+          <md-input-container>
+            <input type="tel" mdInput value={{doctor.degree}} disabled style="color:#2F4F4F">
+          </md-input-container>
+        </div>
+         <div class="col-sm-4 form-group">   
+          <label>Salary</label> &nbsp;&nbsp;&nbsp;
+  
+          <md-input-container>
+            <input type="tel" mdInput value={{doctor.salary}} disabled style="color:#2F4F4F; width:150px">
+          </md-input-container>
+      </div>
+       </div>
+       <div class="row">
+          <div class="col-sm-12 form-group">   
+              <label>Salary</label> &nbsp;&nbsp;&nbsp;
+      
+              <md-input-container>
+                <input type="tel" mdInput value={{doctor.address}} disabled style="color:#2F4F4F; width:500px">
+              </md-input-container>
+       </div>
+    </div>
+  </div>
+  
+      <button md-fab (click)="close()">close</button>
+  

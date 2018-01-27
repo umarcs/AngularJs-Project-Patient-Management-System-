@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-md-12">
+      <h1>Misc Information From API</h1>
+      <div class="table-responsive">
+
+        <table id="mytable" class="table table-bordred table-striped">
+
+          <thead>
+
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last </th>
+            <th>Age</th>
+           
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let obj of data">
+              <td>{{obj.id}}</td>
+              <td>{{obj.firstName}}</td>
+              <td>{{obj.lastName}}</td>
+              <td>{{obj.age}}</td>
+              
+            </tr>
+
+          </tbody>
+
+        </table>
+
+    </div>
+  </div>
+
+<input type="button" value="click me " (click)="click()">
+
+
+
+
+
+
+
+
+
+
+
+
